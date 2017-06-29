@@ -26,7 +26,7 @@
 
 #include "pins_arduino.h"
 #include "wiring_private.h"
-#include <SPI.h>
+#include "SPI.h"
 
 /********************************** low level pin interface */
 
@@ -125,15 +125,15 @@ uint16_t Adafruit_SSD1331::Color565(uint8_t r, uint8_t g, uint8_t b) {
     @brief  Draws a filled rectangle using HW acceleration
 */
 /**************************************************************************/
-/*
-void Adafruit_SSD1331::fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t fillcolor) 
+
+void Adafruit_SSD1331::fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t fillcolor)
 {
 //Serial.println("fillRect");
   // check rotation, move rect around if necessary
   switch (getRotation()) {
   case 1:
-    swap(x, y);
-    swap(w, h);
+    gfx_swap(x, y);
+    gfx_swap(w, h);
     x = WIDTH - x - 1;
     break;
   case 2:
@@ -141,8 +141,8 @@ void Adafruit_SSD1331::fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, 
     y = HEIGHT - y - 1;
     break;
   case 3:
-    swap(x, y);
-    swap(w, h);
+	  gfx_swap(x, y);
+	  gfx_swap(w, h);
     y = HEIGHT - y - 1;
     break;
   }
@@ -185,7 +185,7 @@ void Adafruit_SSD1331::fillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, 
   // Delay while the fill completes
   delay(SSD1331_DELAYS_HWFILL); 
 }
-*/
+
 
 void Adafruit_SSD1331::drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {	
   // check rotation, move pixel around if necessary
