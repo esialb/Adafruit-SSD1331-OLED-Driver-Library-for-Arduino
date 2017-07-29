@@ -101,8 +101,8 @@ class Adafruit_SSD1331 : public virtual Adafruit_GFX {
   void writeData(uint8_t d);
   void writeCommand(uint8_t c);
 
-  static const int16_t TFTWIDTH = 96;
-  static const int16_t TFTHEIGHT = 64;
+  static const int16_t TFTWIDTH = 128;
+  static const int16_t TFTHEIGHT = 128;
 
   void writeData_unsafe(uint16_t d);
 
